@@ -12,8 +12,8 @@ class SmallSMILHandler(ContentHandler):
             self.root_layout = {}
             self.root_layout['width'] = attrs.get('width', "")
             self.root_layout['height'] = attrs.get('height', "")
-            self.root_layout['background_color'] = (
-            attrs.get('background-color', ""))
+            self.root_layout['background_color'] =
+            (attrs.get('background-color', ""))
             self.lista.append([name, self.root_layout])
 
         elif name == "region":
