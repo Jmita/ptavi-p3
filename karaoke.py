@@ -27,8 +27,22 @@ class KaraokeLocal(smallsmilhandler.SmallSMILHandler):
             for key in dicc:
                 if dicc[key] != "":
                     print key + "=" + dicc[key] + "\t",
-		    
-		    
+
+    def do_local(self):
+        for lista in self.data:
+            elemento = lista[0]
+            dicc = lista[1]
+            for key in dicc:
+                if key == "src":
+                    source = dicc[key]
+                    os.system("wget -nv " + dicc[key])
+                    data = source.split('/')
+                    data = data[-1]
+                    dicc[key] = data
+
 if __name__ == "__main__":
     KL = KaraokeLocal()
     KL.print_list()
+    KL.do_local()
+    KL.print_list()
+    print
