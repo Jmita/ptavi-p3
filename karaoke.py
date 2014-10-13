@@ -1,5 +1,3 @@
-
-
 #!/usr/bin/python
 # -*- coding: iso-8859-15 -*-
 
@@ -18,3 +16,19 @@ class KaraokeLocal(smallsmilhandler.SmallSMILHandler):
         parser.setContentHandler(SSHandler)
         parser.parse(open(sys.argv[1]))
         self.data = SSHandler.get_tags()
+
+    def print_list(self):
+
+        for lista in self.data:
+            elemento = lista[0]
+            dicc = lista[1]
+            print
+            print elemento, "\t",
+            for key in dicc:
+                if dicc[key] != "":
+                    print key + "=" + dicc[key] + "\t",
+		    
+		    
+if __name__ == "__main__":
+    KL = KaraokeLocal()
+    KL.print_list()
